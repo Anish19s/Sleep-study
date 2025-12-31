@@ -1,21 +1,67 @@
-# Sleep, Stress & Academic Performance Analysis
+Sleep, Stress & Academic Performance Analysis
+📌 Problem Statement
 
-##Problem Statement
-Can increased study hours compensate for sleep deprivation, or does sleep dominate academic performance when stress is considered?
+Does sleep deprivation negatively impact academic performance more than stress, and can students compensate for poor sleep through other factors?
 
+This project analyzes the relationship between sleep, stress, and academic performance using an ordinal regression model, suitable for ordered outcome variables.
 
+📊 Dataset
 
+The analysis uses a student-level dataset capturing sleep behavior, stress levels, and academic outcomes.
 
-This project predicts how well students will perform academically based on how much they sleep and how much they study. Using ordinal regression, it models grades as ordered categories (like Poor, Average, Excellent), which makes predictions more realistic and interpretable than standard regression.
+Features Used in the Model:
 
-The model takes students’ sleep hours and study habits as inputs and estimates the likelihood of achieving each performance level. This allows students, educators, or researchers to see how changes in sleep or study patterns could impact performance.
+1)Sleep Duration – Average sleep hours
+2)Stress Level – Reported stress measure
 
-The project includes:
+Target Variable:
+-Academic Performance (ordinal outcome)
 
-1)Cleaned and preprocessed data
-2)Ordinal regression model using statsmodels
-3)Prediction outputs with probabilities for each grade category
-4)Simple evaluation metrics like accuracy and mean absolute error
-5)Insights on the relationship between sleep, study, and academic success
+The ordinal nature of academic performance makes ordinal logistic regression an appropriate modeling choice.
 
-This is a small, interpretable, and practical model that shows how lifestyle factors influence learning outcomes. Future improvements could include additional factors like stress, extracurricular activities, and a web dashboard for interactive predictions.
+🛠️ Methodology
+
+1)Data Loading
+  -Dataset uploaded and loaded using Google Colab
+  -Data inspected using Pandas
+
+2)Modeling
+  -Implemented Ordinal Logistic Regression using
+  statsmodels.miscmodels.ordinal_model.OrderedModel
+
+  -Logit distribution used for modeling ordered outcomes
+
+3)Evaluation
+
+  -Predicted class probabilities for each observation
+  -Converted probabilities to class predictions
+  -Model performance evaluated using Mean Absolute Error (MAE)
+
+📈 Results & Insights
+
+-Sleep duration shows a positive association with academic performance
+-Higher stress levels negatively affect outcomes
+-The model confirms that sleep and stress are key determinants of academic performance even without additional features
+
+Evaluation Metric:
+-Mean Absolute Error (MAE) used to assess prediction accuracy for ordered outcomes
+
+🧠 Conclusion
+
+The ordinal regression analysis highlights the importance of sleep and stress in determining academic performance.
+The results suggest that managing stress and maintaining adequate sleep are critical for improved academic outcomes.
+
+💻 Tech Stack
+-Python
+-Pandas – Data loading and analysis
+-Statsmodels – Ordinal regression modeling
+-Scikit-learn – Model evaluation (MAE)
+
+🚀 How to Run the Project
+
+1)Open the notebook in Google Colab
+2)Upload the dataset file when prompted
+3)Run all cells to:
+  -Load the data
+  -Fit the ordinal regression model
+  -View model summary and MAE
